@@ -6,3 +6,8 @@ compatibility_date = "2025-04-01"
 [assets]
 directory = "./public"
 binding = "ASSETS"
+
+routes = [
+  { pattern = "mattico.net", custom_domain = true },
+  { pattern = "www.mattico.net", custom_domain = true },
+]
