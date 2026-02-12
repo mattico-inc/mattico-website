@@ -1,0 +1,93 @@
+name: Screenshots
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright
+        run: npx playwright install chromium
+
+      - name: Start server
+        run: npm run dev &
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:8789 --timeout 30000
+
+      - name: Create screenshots directory
+        run: mkdir -p screenshots
+
+      - name: Take screenshots
+        run: |
+          npx playwright screenshot \
+            --viewport-size="1920,1080" \
+            --full-page \
+            http://localhost:8789 \
+            screenshots/desktop.png
+
+          npx playwright screenshot \
+            --viewport-size="390,844" \
+            --full-page \
+            http://localhost:8789 \
+            screenshots/mobile-portrait.png
+
+          npx playwright screenshot \
+            --viewport-size="844,390" \
+            --full-page \
+            http://localhost:8789 \
+            screenshots/mobile-landscape.png
+
+      - name: Commit screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add screenshots/
+          git commit -m "Update screenshots" || echo "No changes to commit"
+          git push
+
+      - name: Find existing comment
+        uses: peter-evans/find-comment@v3
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- screenshots -->'
+
+      - name: Post screenshots to PR
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- screenshots -->
+            ## Screenshots
+            _Updated: ${{ github.event.pull_request.head.sha }}_
+
+            ### Desktop (1920x1080)
+            ![Desktop](https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/screenshots/desktop.png?${{ github.run_id }})
+
+            ### Mobile Portrait (390x844)
+            ![Mobile Portrait](https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/screenshots/mobile-portrait.png?${{ github.run_id }})
+
+            ### Mobile Landscape (844x390)
+            ![Mobile Landscape](https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/screenshots/mobile-landscape.png?${{ github.run_id }})

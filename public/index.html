@@ -1,244 +1,129 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Mattico</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<style>
-		.employee img{
-			border-radius:50%;
-		}
-		.employee{
-			text-align: center;
-			font-size:1.15em;
-		}
-		</style>
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattico LLC</title>
+    <meta name="description" content="Mattico LLC - We make cool things with a focus on open software and hardware.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Mattico</strong> <span>by HTML5 UP</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions vertical">
-							<li><a href="#" class="button special fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<img src="images/logo.png" style="max-width:80%"/>
-								<h1>Hi, we make cool things</h1>
-							</header>
-							<div class="content">
-								<p>With cool technology and a big focus on open software and hardware</p>
-								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">Get Started</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
+        .logo {
+            max-width: 400px;
+            width: 80%;
+            margin-bottom: 2rem;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
 
-						<!-- One -->
-							<section id="one" class="tiles">
-								<article>
-									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Cloud SMS Relay</a></h3>
-										<p>A secure distributed system to relay SMS messages between all your devices</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">GamePiBoy 64</a></h3>
-										<p>A raspberry pi emulator stuffed inside a GameBoy Advanced powerful enough to run N64 games.</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Minecraft AI</a></h3>
-										<p>A client side Minecraft mod that can collect resources for you</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Finanny</a></h3>
-										<p>Need a nanny for your finances? Using the power of machine learning,
-											it helps you create good habits and manage your money better</p>
-									</header>
-								</article>
-								<!--article>
-								Reserved for future projects
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Consequat</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Etiam</a></h3>
-										<p>Feugiat amet tempus</p>
-									</header>
-								</article-->
-							</section>
+        .subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #888;
+            margin-bottom: 3rem;
+        }
 
-						<!-- Two -->
-							<section id="two">
-								<div class="inner">
-									<header class="major">
-										<h2>Our Team</h2>
-									</header>
-									<p>We have a small team that we run lean and mean. Right now we just have a few people making everything happen.</p>
-									<div id='employees' class='row uniform'>
-										<div class='employee 4u 12u$(small)'>
-											<img src='images/matthew.jpg' class='image fit'/>
-											<p>Matthew Carlson<br/><i>CTO</i></p>
+        .coming-soon {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 1px solid #333;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 3rem;
+        }
 
-										</div>
-										<div class='employee 4u 12u$(small)'>
-											<img src='images/spencer.jpg' class='image fit'/>
-											<p>Spencer Carlson<br/><i>Application Engineer</i></p>
-										</div>
-										<div class='employee 4u 12u$(small)'>
-											<img src='images/carson.jpg' class='image fit'/>
-											<p>Carson Bunker<br/><i>CLO</i></p>
-										</div>
-									</div>
-								</div>
-							</section>
+        .contact {
+            margin-top: 2rem;
+        }
 
-					</div>
+        .contact a {
+            color: #888;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+        }
 
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
+        .contact a:hover {
+            color: #ffffff;
+        }
 
-							<section>
-								<header class="major">
-									<h3>Contact Us</h3>
-									<p>We'd love to hear from you!</p>
-								</header>
-								<form method="post" action="#">
-									<div class="field half first">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="special" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: #444;
+            font-size: 0.85rem;
+        }
 
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">contactus@mattico.tech</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(541) 602-5580 x143</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-home"></span>
-										<h3>Address</h3>
-										<span>53W 1450N<br />
-										Provo, UT 84604<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
+        @media (max-width: 600px) {
+            .tagline {
+                font-size: 1.25rem;
+            }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+            .subtitle {
+                font-size: 1rem;
+            }
 
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+            .logo {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="content">
+            <img src="images/logo.png" alt="Mattico" class="logo">
+            <h1 class="tagline">Hi, we make cool things</h1>
+            <p class="subtitle">with a focus on open software and hardware</p>
+            <span class="coming-soon">Something new is coming</span>
+            <div class="contact">
+                <a href="mailto:contact@mattico.net">contact@mattico.net</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Mattico LLC
+    </footer>
+</body>
 </html>
